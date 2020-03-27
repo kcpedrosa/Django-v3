@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'logout' %}">SAIR</a>
+
+    <ul>
+        {% for person in persons %}
+        <li>
+            <a href="{% url 'persons_update' person.id %}">
+                {{ person.first_name }}
+                {{ person.last_name }}
+            </a>
+            <a href="{% url 'persons_delete' person.id %}" ><strong>Deletar</strong>  </a>
+            {{ person.photo }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!--poderia ser um button abaixo-->
+    <h1 style="text-align: center; border: 1px solid green; width: 200px">
+         <a href="{% url 'persons_new' %}"> Novo cliente </a>
+    </h1>
+
+</body>
+</html>
