@@ -1,19 +1,21 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Person Delete Confirm</title>
-</head>
-<body>
+
+
+{% extends 'base.html' %}
+
+{% block title %} Confirmação de DELETE {% endblock %}
+
+{% block main %}
+
     <h1> Tem certeza que deseja deletar o REGISTRO abaixo? </h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-        <button type="submit"> Deletar </button>
+        <button type="submit" class="btn btn-danger"> Deletar </button>
     </form>
+
+
+{% endblock %}
+
 
 <!--poderia colocar so a {{person}}, alterando em views
 return render(request, 'person_delete_confirm.html', {'form':form})
@@ -21,6 +23,3 @@ para apenas 'person':person e escrevendo Tem certeza que deseja
 deletar o {{person}} abaixo? neste HTML-->
 
 
-
-</body>
-</html>

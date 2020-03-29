@@ -1,20 +1,24 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h2> LOGIN SCREEN </h2>
-    <form method="post">
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Seja bem vindo {% endblock %}
+
+{% block main %}
+    <h1> Welcome and identify yourself </h1>
+       <h2> LOGIN SCREEN </h2>
+        <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit"> LOGIN </button>
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-info"> LOGIN </button>
 
-    </form>
+        </form>
 
-</body>
-</html>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted"> Web Development with Django 3.x </span>
+      </div>
+    </footer>
+{% endblock %}

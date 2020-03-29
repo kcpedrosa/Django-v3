@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['app-gestao-clientes-django.herokuapp.com']
+ALLOWED_HOSTS = ['app-gestao-clientes-django.herokuapp.com','localhost']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrapform',
     'clientes',
     #siga a sequencia da aula, vc passou 30 min pra criar esse app home
     #pq digitou home aqui antes
@@ -147,3 +148,7 @@ MEDIA_ROOT = 'media'
 LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = 'person_list'
+
+STATICFILES_DIRS = [
+    'statics',
+]

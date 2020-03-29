@@ -1,20 +1,42 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<h1> Seja bem vindo </h1>
-    {% if user.is_authenticated %}
-        <p>Ola, <strong> {{ user.username }} </strong> </p>
-        <a href=" {% url 'logout' %} "> Sair </a>
-    {% else %}
-        <a href="{% url 'login' %}"> Entrar</a>
-    {% endif %}
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %} Seja bem vindo {% endblock %}
+
+{% block main %}
+
+        <div class="row">
+            <div class="col">
+              <p>This is a data storage system created using Django that uses PostgreSQL as its
+        database. Please enter your credentials by clicking Enter at the right upper side of this screen.</p>
+                <p>"Of Herbert West, who was my friend in college and in after life,
+            I can speak only with extreme terror. This terror is not due altogether to the sinister manner of his recent disappearance, but was engendered by the whole nature of his life-work, and first gained its acute form more than seventeen years ago,
+            when we were in the third year of our course at the Miskatonic
+            University Medical School in Arkham. While he was with me, the wonder and
+            diabolism of his experiments fascinated me utterly, and I was his closest
+            companion. Now that he is gone and the spell is broken, the actual fear is
+            greater. Memories and possibilities are ever more hideous than realities".
+            Herbert West—Reanimator By H. P. Lovecraft {this text is just for testing}</p>
+            </div>
+            <div class="col-md-6">
+              <h1> Welcome to the database </h1>
+            </div>
+            <div class="col">
+              {% if user.is_authenticated %}
+            <p>Ola, <strong> {{ user.username }} </strong> </p>
+            <a href=" {% url 'logout' %} " class="btn btn-info"> Log Out </a>
+                {% else %}
+            <a href="{% url 'login' %}" class="btn btn-info"> Enter</a>
+                {% endif %}
+            </div>
+        </div>
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted"> Web Development with Django 3.x </span>
+      </div>
+    </footer>
+{% endblock %}
+
