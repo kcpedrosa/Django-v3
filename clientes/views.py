@@ -7,7 +7,15 @@ from .forms import PersonForm
 
 @login_required
 def persons_list(request):
-    persons = Person.objects.all()
+    name = request.GET.get('name', None)
+    surname = request.GET.get('surname', None)
+
+
+    if name or surname:
+        persons = Person.objects.filter(first_name__icontains=name) | Person.objects.filter(last_name__icontains=surname)
+    else:
+        persons = Person.objects.all()
+
     return render(request, 'list.html', {'persons':persons})
 
 @login_required

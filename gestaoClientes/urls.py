@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include(home_urls)),
     path('clientes/', include(clientes_urls)),
     path('login/', auth_views.LoginView.as_view(), name='login'),
+    #check for LoginView change https://docs.djangoproject.com/en/3.0/topics/auth/default/#django.contrib.auth.views.LoginView
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
