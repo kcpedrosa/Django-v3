@@ -1,1 +1,1 @@
-#Django project/ web development/ deployed at Heroku(https://app-gestao-clientes-django.herokuapp.com/)
+#Django project/ done according to udemy course " Desenvolva uma aplicação com Django 2.0 e deploy no Heroku"(Django application and deploy on Heroku)(It was updated to 3.0 where necessary)/ https://app-gestao-clientes-django.herokuapp.com/).
